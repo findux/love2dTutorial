@@ -3,7 +3,7 @@ if os.getenv("LOCAL_LUA_DEBUGGER_VSCODE") == "1" then
 end 
 
 
-local l3d = require "love3d" 
+local l3d = require "love3d" --NOT: Love3d kullanmak için love.exe nin yanına lua klasörü açıp cpml,iqm,love3d klasörlerini kopyalamız gerekiyor.
 
 function love.update()
   love.graphics.print("dddd")
