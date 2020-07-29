@@ -2,6 +2,9 @@ if os.getenv("LOCAL_LUA_DEBUGGER_VSCODE") == "1" then
     require("lldebugger").start()
 end 
 
+
+local l3d = require "love3d" 
+
 function love.update()
   love.graphics.print("dddd")
 end

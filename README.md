@@ -36,5 +36,7 @@ VSCode için launch.json şöyle;
     ]
   }
   ---->
+  
+  NOT: Love3d kullanmak için love.exe nin yanına lua klasörü açıp cpml,iqm,love3d klasörlerini kopyalamız gerekiyor.
 
   
