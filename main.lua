@@ -10,6 +10,7 @@ function love.load()
   sprites.player = love.graphics.newImage('sprites/player.png')
   sprites.bullet = love.graphics.newImage('sprites/bullet.png')
   sprites.zombie = love.graphics.newImage('sprites/zombie.png')
+  sprites.tank = love.graphics.newImage('sprites/tankYesil.png')
   sprites.background = love.graphics.newImage('sprites/background.png')
 
   player = {}
@@ -39,7 +40,7 @@ function love.update(dt)
   end
 
   if love.keyboard.isDown("x") then
-    love.window.close()
+    love.window.close()-- windows kapanıyor ama program çalışmaya devam ediyor.
   end
 end
 
@@ -50,7 +51,12 @@ function love.draw()
   
   love.graphics.draw(sprites.background,0,0)
   love.graphics.draw(sprites.player,player.x,player.y,math.pi*0.25)
-  
+
+  love.graphics.push()
+  love.graphics.scale(0.5,0.5)
+  love.graphics.draw(sprites.tank,100,200)
+  love.graphics.pop()
+
   love.graphics.pop()
 
 
