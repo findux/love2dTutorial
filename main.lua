@@ -11,6 +11,8 @@ local printy = 0
 local text = "text"
 local movementActive = 0
 
+local mgl = require("MGL")
+
 
 function love.load()
   sprites = {}
@@ -53,6 +55,9 @@ function love.update(dt)
   end
   if love.keyboard.isDown("l") then
     player.v = player.v -1
+  end
+  if love.keyboard.isDown("r") then
+    zoom = 1
   end
 
   if love.keyboard.isDown("x") then
@@ -102,13 +107,36 @@ function love.draw()
   love.graphics.scale(1*zoom,-1*zoom)
   
   love.graphics.draw(sprites.background,0,0)
+  --[[
   love.graphics.draw(sprites.player,player.x,player.y,math.pi*0.25)
 
   love.graphics.push()
   love.graphics.scale(0.5,0.5)
   love.graphics.draw(sprites.tank,100,200)
   love.graphics.pop()
+  --]]
 
+  
+  love.graphics.setLineStyle("smooth")
+  love.graphics.setLineWidth(2)
+  love.graphics.line(15, 25, 69, 89)
+
+  love.graphics.setLineStyle("rough")
+  love.graphics.setLineWidth(2)
+  love.graphics.line(200, 200, 100, 200)
+
+  --[[ --how to draw point
+  love.graphics.setColor(1, 0, 0) -- işin sonunda coloru 1,1,1 yapmayı unutma
+  love.graphics.setPointSize(10)
+  love.graphics.points( 15, 25, 69, 89 )
+  --]]
+
+  love.graphics.setColor(1, 0, 0)
+  love.graphics.circle("fill", 200, 200,3,36)
+  love.graphics.circle("fill", 100, 200,3,10)
+
+
+  love.graphics.setColor(1, 1, 1)
   love.graphics.pop()
 
 
