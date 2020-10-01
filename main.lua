@@ -4,17 +4,27 @@ end
 
 
 local l3d = require "love3d" --NOT: Love3d kullanmak için love.exe nin yanına lua klasörü açıp cpml,iqm,love3d klasörlerini kopyalamız gerekiyor.
-local zoom = 1
-local move = {x=0 , y=0}
+local zoom = 1.5
 local printx = 0
 local printy = 0
 local text = "text"
 local movementActive = 0
 
 local mgl = require("MGL")
+mgl.gen_mat(2); mgl.gen_vec(2)
+mgl.gen_mat(3); mgl.gen_vec(3)
+mgl.gen_mat(4); mgl.gen_vec(4)
+local panVector = mgl.vec2(0)
+
 
 
 function love.load()
+  
+  local m = mgl.mat4(1)
+  --m = m * mgl.translate(mgl.vec3(panVector))
+  m = m * mgl.scale(mgl.vec3(zoom,zoom,zoom))
+  print(m)
+
   sprites = {}
   sprites.player = love.graphics.newImage('sprites/player.png')
   sprites.bullet = love.graphics.newImage('sprites/bullet.png')
@@ -96,14 +106,14 @@ end
 function love.mousemoved( x, y, dx, dy, istouch )
   text = string.format("x:%d y:%d dx:%d dy:%d",x,y,dx,dy)
   if movementActive == 1 then
-    move.x = move.x + dx 
-    move.y = move.y + dy
+    panVector.x = panVector.x + dx 
+    panVector.y = panVector.y + dy
   end
 end
 
 function love.draw()
   love.graphics.push()
-  love.graphics.translate(0 + move.x , love.graphics.getHeight()+move.y )
+  love.graphics.translate(0 + panVector.x , love.graphics.getHeight() + panVector.y )
   love.graphics.scale(1*zoom,-1*zoom)
   
   love.graphics.draw(sprites.background,0,0)
@@ -119,11 +129,22 @@ function love.draw()
   
   love.graphics.setLineStyle("smooth")
   love.graphics.setLineWidth(2)
-  love.graphics.line(15, 25, 69, 89)
+  --love.graphics.line(15, 25, 69, 89)
 
-  love.graphics.setLineStyle("rough")
-  love.graphics.setLineWidth(2)
-  love.graphics.line(200, 200, 100, 200)
+  --love.graphics.setLineStyle("rough")
+  --love.graphics.setLineWidth(2)
+  love.graphics.line(0.000000,0.000000,0.000000,500.000000)
+  love.graphics.line(0.000000,500.000000,500.000000,0.000000)
+  love.graphics.line(500.000000,0.000000,500.000000,500.000000)
+  love.graphics.line(500.000000,500.000000,0.000000,0.000000)
+  love.graphics.setColor(1, 0, 0)
+  love.graphics.line(228.786797,250.000000,15.000000,36.213203)
+  love.graphics.line(15.000000,36.213203,15.000000,463.786797)
+  love.graphics.line(15.000000,463.786797,228.786797,250.000000)
+  love.graphics.setColor(0, 0, 1)
+  love.graphics.line(271.213203,250.000000,485.000000,36.213203)
+  love.graphics.line(485.000000,36.213203,485.000000,463.786797)
+  love.graphics.line(485.000000,463.786797,271.213203,250.000000)
 
   --[[ --how to draw point
   love.graphics.setColor(1, 0, 0) -- işin sonunda coloru 1,1,1 yapmayı unutma
@@ -131,17 +152,17 @@ function love.draw()
   love.graphics.points( 15, 25, 69, 89 )
   --]]
 
-  love.graphics.setColor(1, 0, 0)
-  love.graphics.circle("fill", 200, 200,3,36)
-  love.graphics.circle("fill", 100, 200,3,10)
+  --love.graphics.setColor(1, 0, 0)
+  --love.graphics.circle("fill", 200, 200,3,36)
+  --love.graphics.circle("fill", 100, 200,3,10)
 
 
   love.graphics.setColor(1, 1, 1)
   love.graphics.pop()
 
 
-
-  love.graphics.print(player.v)
+  local aaa = mgl.vec2(0) - panVector 
+  love.graphics.print(mgl.length(aaa))
   love.graphics.print(text, printx, printy)
 end
 
