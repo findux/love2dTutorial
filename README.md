@@ -40,11 +40,13 @@ VSCode için launch.json şöyle;
   NOT: Love3d kullanmak için love.exe nin yanına lua klasörü açıp cpml,iqm,love3d klasörlerini kopyalamız gerekiyor.
   
   Lua da regular expression yerine match ve gmatch kullanılabilir. şöyle;
+>>>>>>>>>
 local line = "G1 X 64.000 Y 550.500 Z 4.000 F 1500"
 
-local line2 = line:gsub(' ','')
+local line2 = line:gsub(' ','') -- find replace
+local line3 = line:gsub("00","11") -- find replace
 print(line2)
-
+print(line3) 
 
 local patterns = line:gmatch"[A-Z][0-9.]+"
 print(#line )
@@ -54,13 +56,41 @@ for word in line2:gmatch"[A-Z][0-9.]+" do
     print(word)
 end
 
->>>
+function adeSplit(inputstr, sep)
+        if sep == nil then
+                sep = "%s"
+        end
+        local t={} ; i=1
+        for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+                t[i] = str
+                i = i + 1
+        end
+        return t
+end
+
+local linePieces = adeSplit(line, " ") 
+
+for k,v in pairs(linePieces) do
+  print(v)
+end
+
+>>>>>>>>
+
 G1X64.000Y550.500Z4.000F1500
+G1 X 64.110 Y 550.511 Z 4.110 F 1511
 36
-function: 0x2012220
+function: 0x1ca0180
 G1
 X64.000
 Y550.500
 Z4.000
 F1500
-  
+G1
+X
+64.000
+Y
+550.500
+Z
+4.000
+F
+1500
