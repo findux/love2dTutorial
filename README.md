@@ -3,7 +3,7 @@ love2d kurcalamalarım
 
 love2d visual studio code da çalıştrımak için yaptıklarım şunlardır.
 
-"love" komutunun konsolda çalışması için çevresel değişkenlere love'nin kurulu olduğu yeri Path'e ekledim. Tabikide öncesinde love2d yi kurdum.
+Love2d yi kurudum
 ------>
 Tom Blind'in "Local Lua Debuuger" eklentisini VSCode'a kurdum. Bağlantısı şurda -> https://marketplace.visualstudio.com/items?itemName=tomblind.local-lua-debugger-vscode
 
@@ -24,7 +24,7 @@ VSCode için launch.json şöyle;
         "type": "lua-local",
         "request": "launch",
         "program": {
-          "command": "love"
+          "command": "KURULUMYERİ\love"
         },
         "args": [
           "\"${workspaceFolder}/\""
