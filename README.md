@@ -15,6 +15,8 @@ end
 ----->
 diğer bir eklenti ise "Love2d Support".
 ----->
+diğer bir eklenti ise "vscode-lua" kaynak kodu formatlama için çok güzel bir araç.Ben bunun Eklenti ayarlarından line with değerinide artırıyorum ki uzun satırları kesip satır çoklaması yapmasın.
+----->
 VSCode için launch.json şöyle;
 {
     "version": "0.2.0",
