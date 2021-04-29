@@ -2,7 +2,7 @@
 love2d kurcalamalarım
 
 love2d visual studio code da çalıştrımak için yaptıklarım şunlardır.
-
+## Çevrsel araçları hazırlama
 Love2d yi kurudum
 ------>
 Tom Blind'in "Local Lua Debuuger" eklentisini VSCode'a kurdum. Bağlantısı şurda -> https://marketplace.visualstudio.com/items?itemName=tomblind.local-lua-debugger-vscode
@@ -41,7 +41,9 @@ VSCode için launch.json şöyle;
   
   NOT: Love3d kullanmak için love.exe nin yanına lua klasörü açıp cpml,iqm,love3d klasörlerini kopyalamız gerekiyor.
   
-  Lua da regular expression yerine match ve gmatch kullanılabilir. şöyle;
+  ## Örnek lua kodları
+  
+###  Lua da regular expression yerine match ve gmatch kullanılabilir. şöyle;
 >>>>>>>>>
 local line = "G1 X 64.000 Y 550.500 Z 4.000 F 1500"
 
@@ -50,14 +52,15 @@ local line3 = line:gsub("00","11") -- find replace
 print(line2)
 print(line3) 
 
-local patterns = line:gmatch"[A-Z][0-9.]+"
+local patterns = line:gmatch"[A-Z][-]?[0-9.]+"
 print(#line )
 print(patterns )
 
-for word in line2:gmatch"[A-Z][0-9.]+" do
+for word in line2:gmatch"[A-Z][-]?[0-9.]+" do
     print(word)
 end
 
+### split fonsiyonu
 function adeSplit(inputstr, sep)
         if sep == nil then
                 sep = "%s"
