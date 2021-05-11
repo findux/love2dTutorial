@@ -17,6 +17,10 @@ end
 ```
 
 diğer bir eklenti ise "Love2d Support".
+diğer başka lua ile alakası olmayan ama sevdiğim eklentiler şunlar,
+- Bracket Pair Colorizer 2 -> arntezleri renklendiriyor.
+- Better Comments -> yorumları renklendiiryor
+- Thunder Client -> web sitesine istek gönderip cevabı görüntülüyor.
 
 diğer bir eklenti ise "vscode-lua" kaynak kodu formatlama için çok güzel bir araç.Ben bunun Eklenti ayarlarından line with değerinide artırıyorum ki uzun satırları kesip satır çoklaması yapmasın.
 
