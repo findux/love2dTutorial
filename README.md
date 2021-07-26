@@ -115,5 +115,7 @@ F
 
 
 ### Lua nın içinde nasıl lua scripti koşturulur
+```lua
 local f = assert(loadstring([[print("dofile")]]))
 f()
+```
