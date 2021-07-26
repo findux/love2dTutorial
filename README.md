@@ -112,3 +112,8 @@ Z
 4.000
 F
 1500
+
+
+### Lua nın içinde nasıl lua scripti koşturulur
+local f = assert(loadstring([[print("dofile")]]))
+f()
