@@ -2,7 +2,7 @@
 love2d kurcalamalarım
 
 love2d visual studio code da çalıştrımak için yaptıklarım şunlardır.
-## Çevrsel araçları hazırlama
+## Çevresel araçları hazırlama
 
 Love2d yi kurudum. Tom Blind' in "Local Lua Debuuger" eklentisini VSCode'a kurdum. Bağlantısı şurda  
 
