@@ -53,7 +53,14 @@ VSCode için launch.json şöyle;
   NOT: Love3d kullanmak için love.exe nin yanına lua klasörü açıp cpml,iqm,love3d klasörlerini kopyalamız gerekiyor.
   
   ## Örnek lua kodları
-  
+
+### Lua de require kullanmı
+```lua
+package.path = package.path .. ";../ORNEK_LIBIM.lua" -- bakacağı yolları böyle çoklayabiliyoruz
+package.loaded.ORNEK_LIBIM = nil -- Yeniden yüklemeden önce varsa öncekini boşaltıyoruz
+local AES_ALPHA = require("ORNEK_LIBIM")
+``` 
+ 
 ###  Lua da regular expression yerine match ve gmatch kullanılabilir. şöyle;
 ```lua
 local line = "G1 X 64.000 Y 550.500 Z 4.000 F 1500"
