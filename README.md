@@ -58,7 +58,7 @@ VSCode için launch.json şöyle;
 ```lua
 package.path = package.path .. ";../ORNEK_LIBIM.lua" -- bakacağı yolları böyle çoklayabiliyoruz
 package.loaded.ORNEK_LIBIM = nil -- Yeniden yüklemeden önce varsa öncekini boşaltıyoruz
-local AES_ALPHA = require("ORNEK_LIBIM")
+local ORNEK_LIBIM = require("ORNEK_LIBIM")
 ``` 
  
 ###  Lua da regular expression yerine match ve gmatch kullanılabilir. şöyle;
